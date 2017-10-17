@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  overflow-x: hidden; }
+
+*, *:after, *:before {
+  box-sizing: border-box; }
+
+div {
+  font-family: 'Source Sans Pro', sans-serif; }
+
+.msgbutton {
+  background: url(/assest/envelope.png) no-repeat;
+  cursor: pointer;
+  border: none;
+  width: 24px;
+  height: 24px;
+  margin-right: 25px; }
+
+.bellbutton {
+  background: url(/assest/bell.png) no-repeat;
+  cursor: pointer;
+  border: none;
+  width: 24px;
+  height: 24px;
+  margin-right: 25px; }
+
+.body-container {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px); }
+  .body-container::after {
+    clear: both;
+    content: "";
+    display: block; }
+
+.left-panel {
+  width: calc(25% - 25px);
+  float: left;
+  margin-left: 20px;
+  background: #1588a4;
+  color: #fff;
+  min-height: 100vh; }
+  .left-panel .logo_wb {
+    width: 189px;
+    height: 60px; }
+  .left-panel .list {
+    margin-top: 12px;
+    line-height: 48px; }
+    .left-panel .list .list-item {
+      margin: 0px 7px 0px 0px;
+      font-size: 14px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 60px;
+      padding-left: 45px;
+      letter-spacing: 1.6px;
+      cursor: pointer;
+      border-left: solid 4px transparent; }
+      .left-panel .list .list-item.active {
+        color: #ffa042;
+        border-left-color: #ffa042; }
+  .left-panel .name-sidebar {
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.6px;
+    color: #ffffff; }
+
+.main-panel {
+  width: calc(75% - 35px);
+  float: left;
+  margin-left: 20px;
+  margin-left: 0;
+  background: #eeeded;
+  min-height: 100vh; }
+  .main-panel .navbar {
+    height: 90px;
+    line-height: 64px;
+    background: #fff;
+    border-bottom: solid 1px #eee; }
+    .main-panel .navbar::after {
+      clear: both;
+      content: "";
+      display: block; }
+    .main-panel .navbar .name-navbar {
+      font-family: 'Source Sans Pro';
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 1.6px;
+      color: #2a2a2a; }
+    .main-panel .navbar .search-panel {
+      width: calc(62.5% - 32.5px);
+      float: left;
+      margin-left: 20px; }
+    .main-panel .navbar .menu-panel {
+      width: calc(37.5% - 27.5px);
+      float: left;
+      margin-left: 20px; }
+  .main-panel .cards-container {
+    margin: 20px; }
+    .main-panel .cards-container::after {
+      clear: both;
+      content: "";
+      display: block; }
+    .main-panel .cards-container .card {
+      background: #fff;
+      border-radius: 3px;
+      padding: 12px;
+      box-shadow: 0px 0px 2px 1px rgba(171, 171, 171, 0.08);
+      margin-bottom: 20px; }
+      .main-panel .cards-container .card.full-card {
+        width: calc(100% - 40px);
+        float: left;
+        margin-left: 20px; }
+        .main-panel .cards-container .card.full-card .button {
+          width: 111px;
+          height: 35px;
+          border: none;
+          background-color: white;
+          border: 1px solid #979797;
+          font-family: 'Source Sans Pro';
+          color: #979797;
+          padding: 9px 17px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          letter-spacing: 1.3px;
+          font-size: 12px;
+          border-radius: 100px;
+          margin: 38px 18px 0 0; }
+          .main-panel .cards-container .card.full-card .button.active-btn {
+            background-color: #fff;
+            color: white;
+            background-color: #78d490;
+            /* Green */
+            border: none; }
+        .main-panel .cards-container .card.full-card .button:hover {
+          background-color: #78d490;
+          color: white; }
+        .main-panel .cards-container .card.full-card .overview-heading {
+          font-family: 'Source Sans Pro';
+          font-size: 32px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0.8px;
+          color: #616161; }
+        .main-panel .cards-container .card.full-card .overview-text {
+          font-family: 'Source Sans Pro';
+          font-size: 14px;
+          font-weight: 400;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0.8px;
+          color: #616161; }
+      .main-panel .cards-container .card.card-3 {
+        width: calc(33.33333% - 26.66667px);
+        float: left;
+        margin-left: 20px; }
+        .main-panel .cards-container .card.card-3 .card-heading {
+          font-family: 'Source Sans Pro';
+          font-size: 18px;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0.8px;
+          color: #616161; }
+        .main-panel .cards-container .card.card-3 .card-value {
+          width: 134px;
+          height: 60px;
+          font-family: 'Source Sans Pro';
+          font-size: 48px;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 2.5px; }
+        .main-panel .cards-container .card.card-3 .card-footer {
+          font-family: 'Source Sans Pro';
+          font-size: 17px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: 0.8px;
+          color: #616161;
+          margin-bottom: 20px; }
+
+/*# sourceMappingURL=main.css.map */
