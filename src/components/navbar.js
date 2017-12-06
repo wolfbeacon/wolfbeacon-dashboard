@@ -39,8 +39,8 @@ class Navbar extends Component {
           </a>
         </div>
 
-        <a className="navbar-item">
-        	<i class="search-icon" id="search" data-feather="search"></i>
+        <a className="navbar-item" id="search">
+        	<i class="search-icon" data-feather="search"></i>
         </a>
         
         <div className="navbar-end">

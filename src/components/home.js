@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Navbar from './navbar.js';
 import Statistics from './statistics.js';
+import Search from './search.js';
+import Footer from './footer.js';
 
 import '../css/bulma.css';
 
@@ -13,10 +15,10 @@ class Home extends Component {
   componentDidMount(){
     feather.replace();
     var search = false;
-    $(".search-icon").on("click", function() {
+    $("#search").on("click", function() {
         if (search) {
             search = false;
-            $("#search")
+            $(".search-icon")
                 .removeClass("rotate-in")
                 .addClass("rotate-out")
                 .data('feather', 'x');
@@ -25,7 +27,7 @@ class Home extends Component {
                 .addClass("pull-up");
         } else {
             search = true;
-            $("#search")
+            $(".search-icon")
                 .removeClass("rotate-out")
                 .addClass("rotate-in")
                 .data('feather', 'search');
@@ -54,7 +56,6 @@ class Home extends Component {
         // Toggle the class on both the "navbar-burger" and the "navbar-menu"
         $el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
-
       });
     });
   }
@@ -65,27 +66,11 @@ class Home extends Component {
   render() {
     return (
 
-<div class="parent">
-      <Navbar></Navbar>
-
-      <div class="site-content">
-
-      <div class="search-parent">
-        <div class="field is-grouped search-field">
-            <p class="control is-expanded">
-              <input class="input is-large search-is-bold" name="query" type="text" required/>
-            </p>
-            <p class="control">
-              <button type="submit" class="button is-success is-large bd-rainbow">
-              <span class="icon">
-                <i class="search-icon" data-feather="search"></i>
-              </span>
-              </button>
-            </p>
-        </div>
-      </div>
-
-      <Statistics></Statistics>
+      <div class="parent">
+        <Navbar></Navbar>
+        <div class="site-content">
+          <Search></Search>
+          <Statistics></Statistics>
 
       <section class="hero is-info">
         <div class="hero-body">
@@ -152,7 +137,7 @@ class Home extends Component {
         </div>
       </section>
 
-      <section class="hero is-danger is-fullheight">
+      <section class="hero is-danger is-light-blue is-fullheight">
         <div class="hero-body">
           <div class="container">
              <h1 class="title">
@@ -166,6 +151,8 @@ class Home extends Component {
       </section>
 
       </div>
+
+      <Footer></Footer>
 
 </div>
 
