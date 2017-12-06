@@ -6441,8 +6441,8 @@ nav.level {
 	border: none;
 }
 
-.hero.is-purple {
-  background: #7E57C2;
+.hero.is-light-blue {
+  background: linear-gradient(top, rgba(255, 56, 96, 0) 0%, rgba(255, 56, 96, 1) 100%);
   color: #fff;
 }
 
@@ -6510,6 +6510,16 @@ nav.navbar {
   margin-top: -75px;
 }
 
+.heart {
+  vertical-align: top;
+}
+
 button.button.navbar-burger.is-primary {
   border-radius: 0px;
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    padding: 0;
+  }
 }
