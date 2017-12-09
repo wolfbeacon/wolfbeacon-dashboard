@@ -1,4 +1,8 @@
-# Installation
+# Wolfbeacon Analytics Dashboard
+
+This React app aggregates all the API data and presents it in a visually pleasing form.
+
+#### Running in development
 
 - Clone the repository
 
@@ -16,7 +20,21 @@
 - Run the compiled frontend 
 
   ```bash
-  npm start	
+  npm start
   ```
 
-- Open your browser and head over to `http://localhost:3000/`
+#### Running in production using Docker
+
+- Build a docker image
+
+  ```
+  docker build -t wolfbeacon-analytics-dashboard .
+  ```
+
+- Run the docker image
+
+  ```
+  docker run -p 8000:8000 wolfbeacon-analytics-dashboard
+  ```
+
+The website should be up and running on *localhost:3000*
