@@ -37,4 +37,4 @@ This React app aggregates all the API data and presents it in a visually pleasin
   docker run -p 8000:8000 wolfbeacon-analytics-dashboard
   ```
 
-The website should be up and running on *localhost:3000*
+The website should be up and running on *host-ip:8000*
