@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Navbar from './navbar.js';
-
 import '../css/bulma.css';
 
 import feather from 'feather-icons';
@@ -15,10 +13,10 @@ class Footer extends Component {
   render() {
     return (
 
-    <section class="hero is-danger">
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            Made with <i class="search-icon heart" data-feather="heart"></i> by the open source community
+    <section className="hero is-danger">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            Made with <i className="search-icon heart" data-feather="heart"></i> by the open source community
           </div>
         </div>
       </section>

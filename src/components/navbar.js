@@ -40,7 +40,7 @@ class Navbar extends Component {
         </div>
 
         <a className="navbar-item" id="search">
-        	<i class="search-icon" data-feather="search"></i>
+        	<i className="search-icon" data-feather="search"></i>
         </a>
         
         <div className="navbar-end">

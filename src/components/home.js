@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Navbar from './navbar.js';
-import Statistics from './statistics.js';
-import Search from './search.js';
-import Footer from './footer.js';
+import Navbar from './navbar';
+import Statistics from './statistics';
+import Search from './search';
+import Footer from './footer';
 
 import '../css/bulma.css';
 
@@ -66,21 +66,21 @@ class Home extends Component {
   render() {
     return (
 
-      <div class="parent">
+      <div className="parent">
         <Navbar></Navbar>
-        <div class="site-content">
+        <div className="site-content">
           <Search></Search>
           <Statistics></Statistics>
 
-      <section class="hero is-info">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
+      <section className="hero is-info">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title">
               Overview
             </h1>
 
-            <div class="columns">
-              <div class="column is-3">
+            <div className="columns">
+              <div className="column is-3">
                 <p>Phasellus vestibulum fringilla nunc, 
                 in convallis augue posuere quis. Vivamus 
                 ante turpis, hendrerit a odio a, lacinia 
@@ -90,8 +90,8 @@ class Home extends Component {
                 erat. Pellentesque habitant morbi tristique 
                 senectus et netus et malesuada fames ac turpis egestas.</p>
               </div>
-              <div class="column is-9">
-                <div class="box">
+              <div className="column is-9">
+                <div className="box">
 
                 </div>
               </div>
@@ -101,33 +101,33 @@ class Home extends Component {
         </div>
       </section>
 
-      <section class="hero is-gray">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
-              Last 24 hours <i class="search-icon" data-feather="trending-up"></i>
+      <section className="hero is-gray">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title">
+              Last 24 hours <i className="search-icon" data-feather="trending-up"></i>
             </h1>
-            <h2 class="subtitle">
-              <div class="buttons has-addons is-centered">
-                <span class="button is-warning is-selected">24 hours</span>
-                <span class="button">Week</span>
-                <span class="button">Month</span>
+            <h2 className="subtitle">
+              <div className="buttons has-addons is-centered">
+                <span className="button is-warning is-selected">24 hours</span>
+                <span className="button">Week</span>
+                <span className="button">Month</span>
               </div>
             </h2>
 
-            <div class="columns">
-              <div class="column is-4">
-                <div class="box">
+            <div className="columns">
+              <div className="column is-4">
+                <div className="box">
 
                 </div>
               </div>
-              <div class="column is-4">
-                <div class="box">
+              <div className="column is-4">
+                <div className="box">
 
                 </div>
               </div>
-              <div class="column is-4">
-                <div class="box">
+              <div className="column is-4">
+                <div className="box">
 
                 </div>
               </div>
@@ -137,13 +137,13 @@ class Home extends Component {
         </div>
       </section>
 
-      <section class="hero is-danger is-light-blue is-fullheight">
-        <div class="hero-body">
-          <div class="container">
-             <h1 class="title">
+      <section className="hero is-danger is-light-blue is-fullheight">
+        <div className="hero-body">
+          <div className="container">
+             <h1 className="title">
                 Map comes here
               </h1>
-              <h2 class="subtitle">
+              <h2 className="subtitle">
                 May use D3.js
               </h2>
           </div>
