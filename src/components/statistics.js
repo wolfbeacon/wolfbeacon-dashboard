@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
-import '../css/bulma.css';
-
-import feather from 'feather-icons';
-
 class Statistics extends Component {
-
-  componentDidMount(){
-    feather.replace();
-  }
 
   render() {
     return (
