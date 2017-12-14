@@ -1,7 +1,7 @@
 {
   "name": "wolfbeacon-analytics-dashboard",
   "description": "This React app aggregates all the API data and presents it in a visually pleasing form.",
-  "main": "src/app.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/wolfbeacon/wolfbeacon-analytics-dashboard.git"

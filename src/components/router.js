@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import Home from './components/home.js';
+import Home from './home';
 
-class App extends Component {
+class AppRouter extends Component {
   render() {
     return (
       <Router>
@@ -19,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default AppRouter;
