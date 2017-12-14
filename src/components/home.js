@@ -7,13 +7,15 @@ import Footer from './footer';
 
 import '../css/bulma.css';
 
-import feather from 'feather-icons';
+import  feather from 'feather-icons';
 import $ from 'jquery';
 
 class Home extends Component {
 
   componentDidMount(){
+    // Replaces all feather i classes with icons
     feather.replace();
+
     var search = false;
     $("#search").on("click", function() {
         if (search) {
