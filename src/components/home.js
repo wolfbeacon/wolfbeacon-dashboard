@@ -8,7 +8,6 @@ import Footer from './footer';
 import '../css/bulma.css';
 
 import  feather from 'feather-icons';
-import $ from 'jquery';
 
 class Home extends Component {
 
@@ -16,56 +15,28 @@ class Home extends Component {
     // Replaces all feather i classes with icons
     feather.replace();
 
-    var search = false;
-    $("#search").on("click", function() {
-        var icon;
-        if (search) {
-            search = false;
-            $("#search")
-                .removeClass("rotate-in")
-                .addClass("rotate-out")
-            $(".site-content")
-                .removeClass("pull-down")
-                .addClass("pull-up");
-            icon = feather.icons.search.toSvg();
-            $(this).delay(500).empty().append(icon);
-        } else {
-            search = true;
-            $("#search")
-                .removeClass("rotate-out")
-                .addClass("rotate-in")
-            $(".site-content")
-                .removeClass("pull-up")
-                .addClass("pull-down");
-            icon = feather.icons.x.toSvg();
-            $(this).delay(500).empty().append(icon);
-        }
-    });
-
     document.addEventListener('DOMContentLoaded', function () {
+      // Get all "navbar-burger" elements
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-  // Get all "navbar-burger" elements
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
 
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+          $el.addEventListener('click', function () {
 
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
+            // Get the target from the "data-target" attribute
+            var target = $el.dataset.target;
+            var $target = document.getElementById(target);
 
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target;
-        var $target = document.getElementById(target);
-
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-      });
+            // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+            $el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
     });
-  }
-
-});
   }
 
   render() {
