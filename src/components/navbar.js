@@ -1,6 +1,36 @@
 import React, { Component } from 'react';
+import feather from 'feather-icons';
+import $ from 'jquery';
 
 class Navbar extends Component {
+
+  componentDidMount(){
+    var search = false;
+    $("#search").on("click", function() {
+        var icon;
+        if (search) {
+            search = false;
+            $("#search")
+                .removeClass("rotate-in")
+                .addClass("rotate-out")
+            $(".site-content")
+                .removeClass("pull-down")
+                .addClass("pull-up");
+            icon = feather.icons.search.toSvg();
+            $(this).delay(500).empty().append(icon);
+        } else {
+            search = true;
+            $("#search")
+                .removeClass("rotate-out")
+                .addClass("rotate-in")
+            $(".site-content")
+                .removeClass("pull-up")
+                .addClass("pull-down");
+            icon = feather.icons.x.toSvg();
+            $(this).delay(500).empty().append(icon);
+        }
+    });
+  }
 
   render() {
     return (
