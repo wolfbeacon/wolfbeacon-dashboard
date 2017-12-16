@@ -18,24 +18,27 @@ class Home extends Component {
 
     var search = false;
     $("#search").on("click", function() {
+        var icon;
         if (search) {
             search = false;
-            $(".search-icon")
+            $("#search")
                 .removeClass("rotate-in")
                 .addClass("rotate-out")
-                .data('feather', 'x');
             $(".site-content")
                 .removeClass("pull-down")
                 .addClass("pull-up");
+            icon = feather.icons.search.toSvg();
+            $(this).delay(500).empty().append(icon);
         } else {
             search = true;
-            $(".search-icon")
+            $("#search")
                 .removeClass("rotate-out")
                 .addClass("rotate-in")
-                .data('feather', 'search');
             $(".site-content")
                 .removeClass("pull-up")
                 .addClass("pull-down");
+            icon = feather.icons.x.toSvg();
+            $(this).delay(500).empty().append(icon);
         }
     });
 
