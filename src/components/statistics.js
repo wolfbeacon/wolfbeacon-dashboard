@@ -8,26 +8,26 @@ class Statistics extends Component {
     <nav className="level is-mobile">
       <div className="level-item has-text-centered">
         <div>
-          <p className="heading">Registered</p>
+          <p className="heading">Pre Stage</p>
+          <i data-feather="activity"></i>
+        </div>
+      </div>
+      <div className="level-item has-text-centered">
+        <div>
+          <p className="heading">Applicants</p>
           <p className="title">3,456</p>
         </div>
       </div>
       <div className="level-item has-text-centered">
         <div>
-          <p className="heading">Checked in</p>
+          <p className="heading">Accepted</p>
           <p className="title">123</p>
         </div>
       </div>
       <div className="level-item has-text-centered">
         <div>
-          <p className="heading">Data1</p>
+          <p className="heading">Expected</p>
           <p className="title">456K</p>
-        </div>
-      </div>
-      <div className="level-item has-text-centered">
-        <div>
-          <p className="heading">Data2</p>
-          <p className="title">789</p>
         </div>
       </div>
     </nav>
