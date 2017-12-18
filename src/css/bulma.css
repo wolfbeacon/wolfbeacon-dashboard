@@ -6439,11 +6439,16 @@ nav.level {
 .box {
 	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
 	border: none;
+  transition-property: color,background-color,box-shadow,transform;
+  transition-duration: .15s;
 }
 
-.hero.is-light-blue {
-  background: linear-gradient(top, rgba(255, 56, 96, 0) 0%, rgba(255, 56, 96, 1) 100%);
-  color: #fff;
+.box:hover {
+  cursor: pointer;
+  transition: transform 500ms;
+  transform: translate3d(0px, -3px, -150px);
+  transition-property: color,background-color,box-shadow,transform;
+  transition-duration: .15s;
 }
 
 .search-icon {
@@ -6516,6 +6521,24 @@ nav.navbar {
 
 button.button.navbar-burger.is-primary {
   border-radius: 0px;
+}
+
+#search {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #424242;
+}
+
+html::-webkit-scrollbar {
+    background-color: whitesmoke;
+    width: 4px;
+    height: 0;
+}
+
+.hero.is-grad {
+    background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
 }
 
 @media screen and (max-width: 1023px) {

@@ -93,7 +93,7 @@ class Navbar extends Component {
 
           </div>
           <a className="navbar-item profile-picture is-hidden-mobile">
-            <i data-feather="user"></i>
+            <i data-feather="box"></i>
           </a>
         </div>
     </div>
