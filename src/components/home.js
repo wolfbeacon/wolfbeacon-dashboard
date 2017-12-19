@@ -43,7 +43,7 @@ class Home extends Component {
     return (
 
       <div className="parent">
-        <Navbar></Navbar>
+        <Navbar logout={this.props.logout}></Navbar>
         <div className="site-content">
           <Search></Search>
           <Statistics></Statistics>

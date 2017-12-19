@@ -86,7 +86,7 @@ class Navbar extends Component {
                 <a className="navbar-item">
                   Account Settings
                 </a>
-                <a className="navbar-item">
+                <a className="navbar-item" onClick={this.props.logout}>
                   Log out
                 </a>
               </div>
