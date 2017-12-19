@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import Home from './home';
+import Dashboard from './dashboard';
 import LoginAuth0 from './login';
 
 class AppRouter extends Component {
@@ -10,7 +10,7 @@ class AppRouter extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Dashboard} />
           <Route path="/auth" component={LoginAuth0} />
           {
             /* ToDo: 404 pages */
