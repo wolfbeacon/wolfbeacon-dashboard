@@ -2,14 +2,15 @@ import React from 'react';
 import Auth0Lock from 'auth0-lock';
 import { Redirect, withRouter } from 'react-router-dom';
 
-import auth0 from '../utils/auth0';
+import api from '../utils/api_helper'
 
 class LoginAuth0 extends React.Component {
 
   constructor (props) {
     super(props)
 
-    this._lock = new Auth0Lock(auth0.clientId, auth0.domain, {
+    // Configuration for auth0 Lock 
+    this._lock = new Auth0Lock(api.auth0.clientId, api.auth0.domain, {
       languageDictionary: {"title":"WolfBeacon"},
       language: "en",
       theme: {"logo":"/assets/logo.png"}
@@ -46,12 +47,9 @@ class LoginAuth0 extends React.Component {
   }
 
   render() {
-    let isLoggedin = false;
-    if (localStorage.auth0IdToken)
-      isLoggedin = true;
     return (
       <div>
-      {isLoggedin?<Redirect to="/" />:this.showLogin()}
+      {api.is_logged_in()?<Redirect to="/" />:this.showLogin()}
       </div>
     )
   }
