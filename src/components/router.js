@@ -11,7 +11,7 @@ class AppRouter extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/login" component={LoginAuth0} />
+          <Route path="/auth" component={LoginAuth0} />
           {
             /* ToDo: 404 pages */
           }
