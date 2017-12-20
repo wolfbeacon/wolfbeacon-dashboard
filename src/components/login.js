@@ -13,7 +13,12 @@ class LoginAuth0 extends React.Component {
     this._lock = new Auth0Lock(api.auth0.clientId, api.auth0.domain, {
       languageDictionary: {"title":"WolfBeacon"},
       language: "en",
-      theme: {"logo":"/assets/logo.png"}
+      theme: {
+        logo:"/assets/logo.png",
+        primaryColor: "#37819B"
+      },
+      closable: false,
+      rememberLastLogin: false
       });
   }
 
@@ -43,7 +48,7 @@ class LoginAuth0 extends React.Component {
   }
 
   showLogin = () => {
-    this._lock.show()
+    this._lock.show();
   }
 
   render() {

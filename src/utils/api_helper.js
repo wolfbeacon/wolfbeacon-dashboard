@@ -23,7 +23,7 @@ Exports contains all the necessary functions.
 const exports = {};
 
 exports.auth0 = {
-  clientId: "ntlIGhtP7K7ccKEyqlOveIgQh18t0cqy",
+  clientId: "BKkBkYiGNGn541qYI4unTh9SLMWSx223",
   domain: "wolf-beacon.auth0.com"
 }
 
