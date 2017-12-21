@@ -6478,11 +6478,19 @@ nav.level {
   }
 }
 
-.input {
-  font-weight: bold;
+.input, .select select, .textarea { 
   border-style: solid;
   border-width: 2px;
   box-shadow: none;
+  color: #c7c8c7;
+}
+
+.select, .textarea {
+  margin-bottom: 0.75rem;
+}
+
+.select select {
+  color: #c7c8c7;
 }
 
 .pull-down {

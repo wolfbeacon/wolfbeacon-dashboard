@@ -7,7 +7,7 @@ import Footer from './footer';
 
 import '../css/bulma.css';
 
-import  feather from 'feather-icons';
+import feather from 'feather-icons';
 import $ from 'jquery';
 
 class Home extends Component {
