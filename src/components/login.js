@@ -17,6 +17,9 @@ class LoginAuth0 extends React.Component {
         logo:"/assets/logo.png",
         primaryColor: "#37819B"
       },
+      auth: {
+        params: {scope: 'openid email profile'},
+      },
       closable: false,
       rememberLastLogin: false
       });
@@ -25,25 +28,31 @@ class LoginAuth0 extends React.Component {
   componentDidMount() {
     this._lock.on('authenticated', (authResult) => {
       // Get user profile details with another api call to auth0
+
+      // Hack to access the class's "this" from the function
+      let that = this;
       this._lock.getUserInfo(authResult.accessToken, function(err, profile){
         if(err){
           console.log(err);
           return;
         }
-        localStorage.setItem('wb_user_profile', profile);
+        localStorage.setItem('wb_auth0_profile', JSON.stringify(profile));
+
+        // Set authentication details in localStorage
+        let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+        localStorage.setItem('wb_access_token', authResult.accessToken);
+        localStorage.setItem('wb_id_token', authResult.idToken);
+        localStorage.setItem('wb_expires_at', expiresAt);
+
+        // Hide the modal
+        that._lock.hide();
+
+        // Check whether the user is registered with wolfbeacon
+        if (api.is_registered())
+          that.props.history.replace("/");
+        else
+          that.props.history.replace("/register");
       });
-
-      // Set authentication details in localStorage
-      let expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-      localStorage.setItem('wb_access_token', authResult.accessToken);
-      localStorage.setItem('wb_id_token', authResult.idToken);
-      localStorage.setItem('wb_expires_at', expiresAt);
-
-      // Hide the modal
-      this._lock.hide();
-
-      // Redirect to the dashboard
-      this.props.history.replace("/");
     })
   }
 
