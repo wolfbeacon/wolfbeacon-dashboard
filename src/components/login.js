@@ -49,9 +49,9 @@ class LoginAuth0 extends React.Component {
 
         // Check whether the user is registered with wolfbeacon
         if (api.is_registered())
-          that.props.history.replace("/");
+          that.props.history.replace("/dash");
         else
-          that.props.history.replace("/register");
+          that.props.history.replace("/jointheteam");
       });
     })
   }
