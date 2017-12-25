@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
     if (this.state.auth)
       return <Home logout={this.logout}/>;
     else
-      return <Redirect to="/auth" />;
+      return <Redirect to="/" />;
   }
 }
 

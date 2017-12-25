@@ -49,9 +49,9 @@ class LoginAuth0 extends React.Component {
 
         // Check whether the user is registered with wolfbeacon
         if (api.is_registered())
-          that.props.history.replace("/");
+          that.props.history.replace("/dash");
         else
-          that.props.history.replace("/register");
+          that.props.history.replace("/jointheteam");
       });
     })
   }
@@ -63,7 +63,7 @@ class LoginAuth0 extends React.Component {
   render() {
     return (
       <div>
-      {api.is_logged_in()?<Redirect to="/" />:this.showLogin()}
+      {api.is_logged_in()?<Redirect to="/dash" />:this.showLogin()}
       </div>
     )
   }
