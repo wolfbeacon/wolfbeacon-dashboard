@@ -7,3 +7,11 @@ body {
 #search {
   background-color: #fff;
 }
+
+.input, .select select, .textarea { 
+  color: #c7c8c7;
+}
+
+.select, .textarea {
+  margin-bottom: 0.75rem;
+}
