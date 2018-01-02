@@ -4,14 +4,13 @@ import { Redirect } from 'react-router-dom';
 import Home from './home';
 import api from '../utils/api_helper';
 
-class Dashboard extends React.Component {
+export default class Dashboard extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      auth: api.is_logged_in()
+      auth: api.isLoggedIn()
     };
-    this.logout = this.logout.bind(this);
   }
 
   logout(){
@@ -23,10 +22,8 @@ class Dashboard extends React.Component {
 
   render(){
     if (this.state.auth)
-      return <Home logout={this.logout}/>;
+      return <Home logout={this.logout.bind(this)}/>;
     else
       return <Redirect to="/" />;
   }
 }
-
-export default Dashboard;
