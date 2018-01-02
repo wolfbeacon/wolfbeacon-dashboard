@@ -19,7 +19,7 @@ class Navbar extends Component {
   render() {
     return (
 
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="">
           <img src="/assets/logo.png" alt="Wolfbeacon Logo"/>
@@ -88,6 +88,6 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  logout: PropTypes.function.isRequired
+  logout: PropTypes.func.isRequired
 };
 export default Navbar;

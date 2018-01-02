@@ -166,6 +166,6 @@ class Home extends Component {
   }
 }
 Home.propTypes = {
-  logout: PropTypes.function.isRequired
+  logout: PropTypes.func.isRequired
 };
 export default Home;

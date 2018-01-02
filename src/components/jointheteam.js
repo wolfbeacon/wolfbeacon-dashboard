@@ -12,7 +12,7 @@ export default class JoinTheTeam extends Component {
               Join the team!
             </h1>
             <h2 className="subtitle">
-              Our fam is lit 🔥
+              Our fam is lit <span role="img" aria-label="flame">🔥</span>
             </h2>
           </div>
 

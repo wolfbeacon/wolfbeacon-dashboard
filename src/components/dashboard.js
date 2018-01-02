@@ -2,14 +2,14 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import Home from './home';
-import api from '../utils/api_helper';
+import {isLoggedIn} from '../utils/api_helper';
 
 export default class Dashboard extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      auth: api.isLoggedIn()
+      auth: isLoggedIn()
     };
   }
 

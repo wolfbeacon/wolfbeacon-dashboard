@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 import { Redirect, withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 
-import api from '../utils/api_helper'
+import {isLoggedIn, isRegistered, auth0} from '../utils/api_helper'
 
 class LoginAuth0 extends React.Component {
 
@@ -12,11 +12,11 @@ class LoginAuth0 extends React.Component {
     super(props);
 
     this.state = {
-      auth: api.isLoggedIn()
+      auth: isLoggedIn()
     };
 
     // Configuration for auth0 Lock 
-    this._lock = Promise.promisifyAll(new Auth0Lock(api.auth0.clientId, api.auth0.domain, {
+    this._lock = Promise.promisifyAll(new Auth0Lock(auth0.clientId, auth0.domain, {
       languageDictionary: {"title":"WolfBeacon"},
       language: "en",
       theme: {
@@ -45,7 +45,7 @@ class LoginAuth0 extends React.Component {
 
       this._lock.hide();
 
-      let registered = await api.isRegistered();
+      let registered = await isRegistered();
       this.props.history.replace(registered ? "/dash" : "/jointheteam");      
     } catch (err) {
       console.error(err);
