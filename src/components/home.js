@@ -6,13 +6,24 @@ import Navbar from './navbar';
 import Statistics from './statistics';
 import Search from './search';
 import Footer from './footer';
+import { getUserProfile } from '../utils/api-helper.js';
 
 import '../css/bulma.css';
 
 import feather from 'feather-icons';
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      profile: {}
+    };
+  }
+
   componentDidMount(){
+
+    getUserProfile()
+      .then(profiles => this.setState({profile: profiles[0]}));
     // Replaces all feather i classes with icons
     feather.replace();
 
@@ -31,7 +42,7 @@ class Home extends Component {
   render() {
     return (
   <div className="parent">
-    <Navbar logout={this.props.logout}></Navbar>
+    <Navbar logout={this.props.logout} profile={this.state.profile}></Navbar>
 
     <div className="site-content">
       <Search></Search>

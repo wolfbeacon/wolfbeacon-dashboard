@@ -17,6 +17,7 @@ class Navbar extends Component {
   }
 
   render() {
+    const user = this.props.profile;
     return (
 
     <nav className="navbar" aria-label="main navigation">
@@ -59,12 +60,12 @@ class Navbar extends Component {
           <div className="navbar-item has-dropdown is-hoverable">
 
               <a className="navbar-link">
-                Jeremy Philemon
+                {user.first_name || " "}
               </a>
 
               <div className="navbar-dropdown">
                 <div className="navbar-item">
-                  my-email@gmail.com
+                  {user.email}
                 </div>
                 <hr className="navbar-divider"/>
                 <a className="navbar-item">
@@ -88,6 +89,7 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired
 };
 export default Navbar;

@@ -49,3 +49,17 @@ export function wipeLoginData() {
   localStorage.removeItem('wb_id_token');
   localStorage.removeItem('wb_expires_at');
 }
+
+export function getUserProfile() {
+  const profile = JSON.parse(localStorage.getItem('wb_auth0_profile'));
+  return axios.get(base + endpoints.user, {
+    params: {
+      email: profile.email
+    },
+    headers: {
+      'Authorization': 'Bearer ' + access_token,
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.data)
+    .catch(() => false);
+}
