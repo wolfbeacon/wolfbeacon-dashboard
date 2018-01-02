@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import Home from './home';
-import {isLoggedIn} from '../utils/api_helper';
+import {isLoggedIn, wipeLoginData} from '../utils/api_helper';
 
 export default class Dashboard extends React.Component {
 
@@ -14,10 +14,8 @@ export default class Dashboard extends React.Component {
   }
 
   logout(){
-    localStorage.removeItem('wb_access_token');
-    localStorage.removeItem('wb_id_token');
-    localStorage.removeItem('wb_expires_at');
-    this.setState({auth: false});
+    wipeLoginData();
+    this.setState({auth: isLoggedIn()});
   }
 
   render(){

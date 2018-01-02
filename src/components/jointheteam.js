@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 
 export default class JoinTheTeam extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      level: "",
+      shirt: "",
+      diet: "",
+      gender: ""
+    }
+  }
+
   render() {
     return (
 
@@ -39,8 +49,8 @@ export default class JoinTheTeam extends Component {
                 </div>
 
                 <div className="select is-fullwidth">
-                  <select name="gender">
-                    <option selected>Gender</option>
+                  <select value={this.state.gender} name="gender">
+                    <option value="">Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
@@ -60,8 +70,8 @@ export default class JoinTheTeam extends Component {
                 </div>
 
                 <div className="select is-fullwidth">
-                  <select name="level_of_study">
-                    <option selected>Level of Study</option>
+                  <select value={this.state.level} name="level_of_study">
+                    <option value="">Level of Study</option>
                     <option value="high-school">High School</option>
                     <option value="undergraduate">Undergraduate</option>
                     <option value="graduate">Graduate</option>
@@ -95,8 +105,8 @@ export default class JoinTheTeam extends Component {
                 </div>
 
                 <div className="select is-fullwidth">
-                  <select name="tshirt_size">
-                    <option selected>T-Shirt Size</option>
+                  <select value={this.state.shirt} name="tshirt_size">
+                    <option value="">T-Shirt Size</option>
                     <option value="XS">XS</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
@@ -131,8 +141,8 @@ export default class JoinTheTeam extends Component {
                 </div>
 
                 <div className="select is-fullwidth">
-                  <select name="dietary_restrictions">
-                    <option selected>Dietary Restrictions</option>
+                  <select value={this.state.diet} name="dietary_restrictions">
+                    <option value="">Dietary Restrictions</option>
                     <option value="halal">Halal</option>
                     <option value="vegetarian">Vegetarian</option>
                     <option value="vegan">Vegan</option>
