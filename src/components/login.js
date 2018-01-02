@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 import { Redirect, withRouter } from 'react-router-dom';
 import ReactRouterPropTypes from 'react-router-prop-types';
 
-import {isLoggedIn, isRegistered, auth0, saveLoginData} from '../utils/api_helper'
+import {isLoggedIn, isRegistered, auth0, saveLoginData} from '../utils/api-helper'
 
 class LoginAuth0 extends React.Component {
 
