@@ -1,41 +1,25 @@
 import React, { Component } from 'react';
-import feather from 'feather-icons';
-import $ from 'jquery';
+import PropTypes from 'prop-types';
 
 class Navbar extends Component {
 
-  componentDidMount(){
-    var search = false;
-    $("#search").on("click", function() {
-        var icon;
-        if (search) {
-            search = false;
-            $("#search")
-                .removeClass("rotate-in")
-                .addClass("rotate-out")
-            $(".site-content")
-                .removeClass("pull-down")
-                .addClass("pull-up");
-            icon = feather.icons.search.toSvg();
-            $(this).delay(500).empty().append(icon);
-        } else {
-            search = true;
-            $("#search")
-                .removeClass("rotate-out")
-                .addClass("rotate-in")
-            $(".site-content")
-                .removeClass("pull-up")
-                .addClass("pull-down");
-            icon = feather.icons.x.toSvg();
-            $(this).delay(500).empty().append(icon);
-        }
-    });
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      search: false
+    };
+    this.toggleSearch = this.toggleSearch.bind(this);
+  }
+
+  toggleSearch() {
+    this.setState({search: !this.state.search});
   }
 
   render() {
     return (
 
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar" aria-label="main navigation">
       <div className="navbar-brand">
         <a className="navbar-item" href="">
           <img src="/assets/logo.png" alt="Wolfbeacon Logo"/>
@@ -61,8 +45,8 @@ class Navbar extends Component {
           </a>
         </div>
 
-        <a className="navbar-item" id="search">
-        	<i className="search-icon" data-feather="search"></i>
+        <a className={"navbar-item " + (this.state.search ? "rotate-in" : "rotate-out")} id="search" onClick="this.toggleSearch">
+          <i className="search-icon" data-feather={(this.state.search ? "search" : "x")}></i>
         </a>
         
         <div className="navbar-end">
@@ -103,4 +87,7 @@ class Navbar extends Component {
   }
 }
 
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired
+};
 export default Navbar;

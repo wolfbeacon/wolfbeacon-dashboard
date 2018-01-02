@@ -1,10 +1,10 @@
 {
-  "name": "wolfbeacon-analytics-dashboard",
+  "name": "wolfbeacon-dashboard",
   "description": "This React app aggregates all the API data and presents it in a visually pleasing form.",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wolfbeacon/wolfbeacon-analytics-dashboard.git"
+    "url": "https://github.com/wolfbeacon/wolfbeacon-dashboard.git"
   },
   "license": "GPL",
   "version": "0.1.0",
@@ -12,17 +12,31 @@
   "dependencies": {
     "auth0-lock": "^11.0.0",
     "axios": "^0.17.1",
+    "bluebird": "^3.5.1",
     "feather-icons": "^4.4.0",
-    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-countup": "^3.0.2",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17"
+    "react-router-prop-types": "^0.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "lint": "eslint . --fix",
+    "pretest": "npm run lint"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-plugin-react": "^7.5.1",
+    "pre-commit": "^1.2.2",
+    "react-scripts": "1.0.17"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }

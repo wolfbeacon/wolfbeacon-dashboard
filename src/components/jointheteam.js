@@ -1,69 +1,77 @@
 import React, { Component } from 'react';
-import feather from 'feather-icons';
-import $ from 'jquery';
 
-class Jointheteam extends Component {
+export default class JoinTheTeam extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      level: "",
+      shirt: "",
+      diet: "",
+      gender: ""
+    }
+  }
 
   render() {
     return (
 
-      <section class="hero">
-        <div class="hero-body">
-          <div class="container">
-            <h1 class="title">
+      <section className="hero">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title">
               Join the team!
             </h1>
-            <h2 class="subtitle">
-              Our fam is lit 🔥
+            <h2 className="subtitle">
+              Our fam is lit <span role="img" aria-label="flame">🔥</span>
             </h2>
           </div>
 
-          <div class="columns">
-            <div class="column is-4 is-offset-4">
-              <div class="box">
+          <div className="columns">
+            <div className="column is-4 is-offset-4">
+              <div className="box">
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="first_name" type="text" placeholder="First Name" maxlength="150"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="first_name" type="text" placeholder="First Name" maxLength="150"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="last_name" type="text" placeholder="Last Name" maxlength="150"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="last_name" type="text" placeholder="Last Name" maxLength="150"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="username" type="text" placeholder="Username" maxlength="50"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="username" type="text" placeholder="Username" maxLength="50"/>
                   </p>
                 </div>
 
-                <div class="select is-fullwidth">
-                  <select name="gender">
-                    <option selected>Gender</option>
+                <div className="select is-fullwidth">
+                  <select value={this.state.gender} name="gender">
+                    <option value="">Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="email" type="email" placeholder="Email"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="email" type="email" placeholder="Email"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="phone_number" type="tel" placeholder="Phone Number"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="phone_number" type="tel" placeholder="Phone Number"/>
                   </p>
                 </div>
 
-                <div class="select is-fullwidth">
-                  <select name="level_of_study">
-                    <option selected>Level of Study</option>
+                <div className="select is-fullwidth">
+                  <select value={this.state.level} name="level_of_study">
+                    <option value="">Level of Study</option>
                     <option value="high-school">High School</option>
                     <option value="undergraduate">Undergraduate</option>
                     <option value="graduate">Graduate</option>
@@ -72,33 +80,33 @@ class Jointheteam extends Component {
                   </select>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="major_of_study" type="text" placeholder="College Major" maxlength="150"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="major_of_study" type="text" placeholder="College Major" maxLength="150"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="school_last_attended" type="text" placeholder="Educational Institution Attended" maxlength="150"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="school_last_attended" type="text" placeholder="Educational Institution Attended" maxLength="150"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="graduation_year" type="number" placeholder="Year of Graduation" min="1950" max="2030"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="graduation_year" type="number" placeholder="Year of Graduation" min="1950" max="2030"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="graduation_month" type="number" placeholder="Month of Graduation" min="1" max="12"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="graduation_month" type="number" placeholder="Month of Graduation" min="1" max="12"/>
                   </p>
                 </div>
 
-                <div class="select is-fullwidth">
-                  <select name="tshirt_size">
-                    <option selected>T-Shirt Size</option>
+                <div className="select is-fullwidth">
+                  <select value={this.state.shirt} name="tshirt_size">
+                    <option value="">T-Shirt Size</option>
                     <option value="XS">XS</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
@@ -108,33 +116,33 @@ class Jointheteam extends Component {
                   </select>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="country" type="text" placeholder="Country" maxlength="150"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="country" type="text" placeholder="Country" maxLength="150"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="city" type="text" placeholder="City" maxlength="150"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="city" type="text" placeholder="City" maxLength="150"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="pincode" type="number" placeholder="Pincode"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="pincode" type="number" placeholder="Pincode"/>
                   </p>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="birthday" type="date" placeholder="Date of Birth"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="birthday" type="date" placeholder="Date of Birth"/>
                   </p>
                 </div>
 
-                <div class="select is-fullwidth">
-                  <select name="dietary_restrictions">
-                    <option selected>Dietary Restrictions</option>
+                <div className="select is-fullwidth">
+                  <select value={this.state.diet} name="dietary_restrictions">
+                    <option value="">Dietary Restrictions</option>
                     <option value="halal">Halal</option>
                     <option value="vegetarian">Vegetarian</option>
                     <option value="vegan">Vegan</option>
@@ -144,35 +152,35 @@ class Jointheteam extends Component {
                   </select>
                 </div>
 
-                <div class="field">
-                  <p class="control">
-                    <input class="input" name="technical_interests" type="text" placeholder="List of Technology sub categories Interested In"/>
+                <div className="field">
+                  <p className="control">
+                    <input className="input" name="technical_interests" type="text" placeholder="List of Technology sub categories Interested In"/>
                   </p>
                 </div>
 
-                <div class="field is-grouped is-grouped-multiline">
+                <div className="field is-grouped is-grouped-multiline">
 
-                  <div class="control">
-                    <div class="tags has-addons">
-                      <span class="tag is-info">Django</span>
-                      <a class="tag is-delete"></a>
+                  <div className="control">
+                    <div className="tags has-addons">
+                      <span className="tag is-info">Django</span>
+                      <a className="tag is-delete"></a>
                     </div>
                   </div>
 
-                  <div class="control">
-                    <div class="tags has-addons">
-                      <span class="tag is-info">ReactJS</span>
-                      <a class="tag is-delete"></a>
+                  <div className="control">
+                    <div className="tags has-addons">
+                      <span className="tag is-info">ReactJS</span>
+                      <a className="tag is-delete"></a>
                     </div>
                   </div>
 
                 </div>
 
-                <label class="label">Special Accommodations Required</label>
-                <textarea class="textarea" name="special_accomodations" placeholder=""></textarea>
+                <label className="label">Special Accommodations Required</label>
+                <textarea className="textarea" name="special_accomodations" placeholder=""></textarea>
 
-                <label class="label">About You</label>
-                <textarea class="textarea" name="about_me"></textarea>
+                <label className="label">About You</label>
+                <textarea className="textarea" name="about_me"></textarea>
 
               </div>
             </div>
@@ -184,5 +192,3 @@ class Jointheteam extends Component {
     )
   }
 }
-
-export default Jointheteam;
