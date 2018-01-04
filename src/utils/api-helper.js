@@ -53,6 +53,7 @@ export function wipeLoginData() {
 }
 
 export function getUserProfile() {
+  // Returns the profile array matching the user ID
   const profile = JSON.parse(localStorage.getItem('wb_auth0_profile'));
   return api().get(endpoints.user, {
     params: {
