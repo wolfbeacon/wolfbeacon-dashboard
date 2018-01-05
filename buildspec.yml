@@ -2,10 +2,11 @@ version: 0.2
 phases:
   install:
     commands:
+      - aws s3 cp $DASHBOARD_S3_CONFIG_PATH src/utils/secret.json
       - npm install
   build:
     commands:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync build/ "s3://${BUCKET_NAME}"
+      - aws s3 sync --acl public-read build/ "s3://${BUCKET_NAME}"
