@@ -60,12 +60,11 @@ class Navbar extends Component {
           <div className="navbar-item has-dropdown is-hoverable">
 
               <a className="navbar-link">
-                {user.first_name || " "}
+                {user?user.first_name:" "}
               </a>
 
               <div className="navbar-dropdown">
-                <div className="navbar-item">
-                  {user.email}
+                  {user?user.email:" "}
                 </div>
                 <hr className="navbar-divider"/>
                 <a className="navbar-item">

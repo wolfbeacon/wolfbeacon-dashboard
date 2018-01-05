@@ -16,6 +16,16 @@ export let auth0 = {
   domain: "wolf-beacon.auth0.com"
 };
 
+export function api() {
+  return axios.create({
+    baseURL: base,
+    headers: {
+      'Authorization': 'Bearer ' + access_token,
+      'Content-Type': 'application/json'
+    }
+  });
+}
+
 export function isLoggedIn() {
   return !!localStorage.getItem('wb_access_token');
 }
@@ -24,16 +34,8 @@ export function isRegistered() {
   if (!isLoggedIn()) {
     return Promise.resolve(false);
   }
-  const profile = JSON.parse(localStorage.getItem('wb_auth0_profile'));
-  return axios.get(base + endpoints.user, {
-    params: {
-      email: profile.email
-    },
-    headers: {
-      'Authorization': 'Bearer ' + access_token,
-      'Content-Type': 'application/json'
-    }
-  }).then(res => res.data.length > 0).catch(() => false);
+  return getUserProfile()
+    .then(res => res.length > 0).catch(() => false);
 }
 
 export function saveLoginData(authResult, profile) {
@@ -52,13 +54,9 @@ export function wipeLoginData() {
 
 export function getUserProfile() {
   const profile = JSON.parse(localStorage.getItem('wb_auth0_profile'));
-  return axios.get(base + endpoints.user, {
+  return api().get(endpoints.user, {
     params: {
       email: profile.email
-    },
-    headers: {
-      'Authorization': 'Bearer ' + access_token,
-      'Content-Type': 'application/json'
     }
   }).then(res => res.data)
     .catch(() => false);
