@@ -64,7 +64,6 @@ class Navbar extends Component {
               </a>
 
               <div className="navbar-dropdown">
-                <div className="navbar-item">
                   {user?user.email:" "}
                 </div>
                 <hr className="navbar-divider"/>
