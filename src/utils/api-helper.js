@@ -7,7 +7,7 @@ const base = "https://api.wolfbeacon.com/v" + version + "/";
 const access_token = require('./secret.json').access_token;
 const endpoints = {
   user: "users/",
-  hacker: (hackathon_id) => `hackathons/${hackathon_id}/hackers/`,
+  hackers: "hackers/",
   hackathon: (hackathon_id) => `hackathons/${hackathon_id}/`
 }
 
@@ -63,12 +63,23 @@ export function getUserProfile() {
     .catch(() => false);
 }
 
+export function getUserById(id) {
+  const url = endpoints.user + id + "/";
+  return api().get(url)
+    .then(res => res.data);
+}
+
 export function getHackathon(hackId) {
   const url = base + endpoints.hackathon(hackId);
-  return axios.get(url, {
-    headers: {
-      'Authorization': 'Bearer ' + access_token,
-      'Content-Type': 'application/json'
+  return api().get(url)
+    .then(res => res.data);
+}
+
+export function getHackers(hackId) {
+  const url = base + endpoints.hackers;
+  return api().get(url, {
+    params: {
+      hackathon: hackId
     }
   }).then(res => res.data)
     .catch(() => false);
