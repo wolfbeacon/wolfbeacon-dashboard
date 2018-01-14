@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import feather from 'feather-icons';
 
 import { getUserById } from '../utils/api-helper';
 
@@ -14,7 +15,23 @@ export default class ApplicationCard extends React.Component {
 
   componentDidMount() {
     getUserById(this.props.hacker.user)
-      .then(profile => this.setState({user: profile}));
+      .then(profile => {
+        this.setState({user: profile});
+        feather.replace();
+      });
+  }
+
+  getAge(birthday) {
+    // birthday is a string containing the date
+    // eg: 1998-11-07
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        return age - 1;
+    }
+    return age;
   }
 
   render() {
@@ -26,20 +43,32 @@ export default class ApplicationCard extends React.Component {
         <div>Loading user data</div>
       );
 
+    const age = this.getAge(user.birthday);
+    // Set application tag class
+    let tagClass = "tag ";
+    switch(hacker.application_status){
+      case "accepted":
+        tagClass+="is-success";
+        break;
+      case "rejected":
+        tagClass+="is-danger";
+        break;
+      case "wait-listed":
+        tagClass+="is-warning";
+        break;
+    }
+
     return (
-      <div className="card">
+      <div className="card user-card">
         <div className="card-content">
-          <div className="media">
-            <div className="media-content">
-              <p className="title is-4">{user.first_name + user.last_name}</p>
-              <p className="subtitle is-6">@{user.username}</p>
+          <div className="content has-text-centered">
+            <p className="is-size-5 is-marginless">{user.first_name + " " + user.last_name}</p>
+            <span className={tagClass}>{hacker.application_status}</span><br />
+            <div className="user-data">
+              <span className="app-user-data"><i className="card-icon user-icon" data-feather="user"></i> {age} yrs </span>
+              <span className="app-user-data"><i className="card-icon map-icon"  data-feather="map-pin"></i> {user.city} </span>
+              <span className="app-user-data"><i className="card-icon book-icon"  data-feather="book-open"></i> {user.school_last_attended} </span>
             </div>
-          </div>
-          <div className="content">
-            <p className="app-user-data">Age: {user.birthday}</p>
-            <p className="app-user-data">Location: {user.location}</p>
-            <p className="app-user-data">University: {user.school_last_attended}</p>
-            <p className="app-user-data">Appliation Status: {hacker.application_status}</p>
           </div>
         </div>
       </div>

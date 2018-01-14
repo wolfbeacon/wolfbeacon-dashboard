@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactRouterPropTypes from 'react-router-prop-types';
+import feather from 'feather-icons';
 
 import Navbar from './navbar';
 import Footer from './footer';
 import ApplicationCard from './application-card.js';
 import { getUserProfile, getHackathon, getHackers } from '../utils/api-helper.js';
+
+import '../css/applications.css';
 
 export default class Applications extends React.Component {
 
@@ -19,6 +22,7 @@ export default class Applications extends React.Component {
   }
 
   componentDidMount(){
+    feather.replace();
     getUserProfile()
       .then(profiles => this.setState({profile: profiles[0]}));
 
@@ -51,17 +55,25 @@ export default class Applications extends React.Component {
         <Navbar profile={this.state.profile} />
         <section className="section">
           <h1 className="has-text-success is-capitalized has-text-weight-light has-text-centered is-size-3">{hackathon.name}</h1>
+          <br />
+
         {
           /* Accepted / Pending section */
           /* Search bar */
           /* Export bar */
         }
-        {
-          // Render all hackers as cards
-          this.state.hackers.map((item, i) => {
-            return <ApplicationCard key={i} hacker={item} />
-          })
-        }
+        <h1 className="has-text-weight-light has-text-centered is-size-4">Applications</h1>
+        <br />
+        <div className="columns is-mobile">
+          <div className="column is-half is-offset-one-quarter">
+            {
+              // Render all hackers as cards
+              this.state.hackers.map((item, i) => {
+                return <ApplicationCard key={i} hacker={item} />
+              })
+            }
+          </div>
+        </div>
         </section>
         <Footer />
       </div>
