@@ -1,5 +1,10 @@
 .user-card {
   margin: 15px auto;
+  cursor: pointer;
+}
+
+.user-card:hover {
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.2), 0 0 0 1px rgba(10, 10, 10, 0.1);
 }
 .app-user-data {
   margin-right: 10px;
@@ -24,4 +29,8 @@
 .map-icon {
   vertical-align: -5px;
   margin-right: 0;
+}
+
+.Modal-closeIcon-0-1-4 {
+  z-index: 999;
 }
