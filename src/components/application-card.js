@@ -63,7 +63,7 @@ export default class ApplicationCard extends React.Component {
 
     if (!user)
       return (
-        <div>Loading user data</div>
+        <LoadingCard />
       );
 
     const age = this.getAge(user.birthday);
@@ -81,6 +81,8 @@ export default class ApplicationCard extends React.Component {
       case "wait-listed":
         tagClass+="is-warning";
         break;
+      default:
+        tagClass+="";
     }
 
     return (
@@ -121,6 +123,22 @@ export default class ApplicationCard extends React.Component {
     );
   }
 }
+
+const LoadingCard = () => (
+  <div className="card user-card" onClick={this.openModal}>
+    <div className="card-content">
+      <div className="content has-text-centered">
+        <p className="is-size-5 is-marginless is-blurred">Lorem Epsum</p>
+        <span className="is-blurred">applied</span><br />
+        <div className="user-data">
+          <span className="app-user-data is-blurred"><i className="card-icon user-icon" data-feather="user"></i>18 years</span>
+          <span className="app-user-data is-blurred"><i className="card-icon map-icon"  data-feather="map-pin"></i> Location </span>
+          <span className="app-user-data is-blurred"><i className="card-icon book-icon"  data-feather="book-open"></i> University </span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 ApplicationCard.propTypes = {
   hacker: PropTypes.shape({

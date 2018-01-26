@@ -7,7 +7,7 @@ export default class Statistics extends Component {
     const {applied, accepted, waitlisted, rejected} = this.props.stats;
 
     // load
-    const load = (<span className="blurred">8</span>);
+    const load = (<span className="is-blurred">8</span>);
 
     return (
     <nav className="level is-mobile">
