@@ -16,8 +16,10 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      profile: {}
+      profile: {},
+      search: false
     };
+    this.toggleSearchBar = this.toggleSearchBar.bind(this);
   }
 
   componentDidMount(){
@@ -39,14 +41,26 @@ class Home extends Component {
     });
   }
 
+  toggleSearchBar() {
+    const search = this.state.search;
+    this.setState({
+      search: !search
+    });
+  }
+
   render() {
     return (
   <div className="parent">
-    <Navbar logout={this.props.logout} profile={this.state.profile}></Navbar>
+    <Navbar 
+      logout={this.props.logout}
+      profile={this.state.profile}
+      search={this.state.search}
+      toggle={this.toggleSearchBar}
+    />
 
     <div className="site-content">
-      <Search></Search>
-      <Statistics></Statistics>
+      <Search search={this.state.search} />
+      <Statistics />
 
       <section className="hero is-info">
         <div className="hero-body">

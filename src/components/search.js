@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Search extends Component {
-
   render() {
     return (
-
-      <div className="search-parent">
+      <div className={this.props.search?"pull-down":"pull-up"}>
         <div className="field is-grouped search-field">
             <p className="control is-expanded">
               <input className="input is-large search-is-bold" name="query" type="text" required/>
@@ -19,7 +18,10 @@ export default class Search extends Component {
             </p>
         </div>
       </div>
-
     )
   }
+}
+
+Search.propTypes = {
+  search: PropTypes.bool.isRequired
 }
