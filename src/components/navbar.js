@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import feather from 'feather-icons';
+
 class Navbar extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      search: false
-    };
-    this.toggleSearch = this.toggleSearch.bind(this);
-  }
-
-  toggleSearch() {
-    this.setState({search: !this.state.search});
+  componentDidUpdate(){
+    console.log("replace");
+    feather.replace();
   }
 
   render() {
     const user = this.props.profile;
+    const icon = this.props.search?feather.icons.x.toSvg():feather.icons.search.toSvg();
     return (
 
     <nav className="navbar" aria-label="main navigation">
@@ -45,12 +40,10 @@ class Navbar extends Component {
             Calendar
           </a>
         </div>
-
-        <a className={"navbar-item " + (this.state.search ? "rotate-in" : "rotate-out")} id="search" onClick="this.toggleSearch">
-          <i className="search-icon" data-feather={(this.state.search ? "search" : "x")}></i>
-        </a>
         
         <div className="navbar-end">
+          <a className={"navbar-item " + (this.props.search ? "rotate-in" : "rotate-out")} id="search" onClick={this.props.toggle} dangerouslySetInnerHTML={{__html: icon}}>
+          </a>
           <a className="navbar-item">
             <i data-feather="mail" alt="Inbox"></i>
           </a>
@@ -90,6 +83,9 @@ class Navbar extends Component {
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  search: PropTypes.bool,
+  toggle: PropTypes.func,
 };
+
 export default Navbar;

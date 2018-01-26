@@ -4,6 +4,7 @@ import feather from 'feather-icons';
 
 import Navbar from './navbar';
 import Footer from './footer';
+import Search from './search';
 import ApplicationCard from './application-card.js';
 import Statistics from './statistics.js';
 import { getUserProfile, getHackathon, getHackers } from '../utils/api-helper.js';
@@ -19,8 +20,10 @@ export default class Applications extends React.Component {
       hackathon: {},
       hackers: [],
       stats: {},
-      notFound: false
+      notFound: false,
+      search: false,
     };
+    this.toggleSearchBar = this.toggleSearchBar.bind(this);
   }
 
   componentDidMount(){
@@ -63,6 +66,13 @@ export default class Applications extends React.Component {
     return stats;
   }
 
+  toggleSearchBar() {
+    const search = this.state.search;
+    this.setState({
+      search: !search
+    });
+  }
+
   render(){
     if (this.state.notFound)
       return (
@@ -73,19 +83,29 @@ export default class Applications extends React.Component {
       );
 
     const hackathon = this.state.hackathon;
+
+    // Header Margin Fix
+    const headerStyle = {
+      transition: "all 0.5ms ease-in",
+      marginTop: this.state.search?80:30
+    }
+
     return (
       <div className="applications-parent">
-        <Navbar profile={this.state.profile} />
-        <section className="section">
-          <h1 className="has-text-success is-capitalized has-text-weight-light has-text-centered is-size-3">{hackathon.name}</h1>
+        <Navbar 
+          profile={this.state.profile}
+          toggle={this.toggleSearchBar}
+          search={this.state.search}
+        />
+        <div className="site-content">
+          <Search search={this.state.search} />
+          <h1 className="has-text-success is-capitalized has-text-weight-light has-text-centered is-size-3" style={headerStyle}>{hackathon.name}</h1>
           <br />
           <Statistics stats={this.state.stats} />
           <br />
-        {
-          /* Accepted / Pending section */
-          /* Search bar */
-          /* Export bar */
-        }
+          {
+            /* Export bar */
+          }
         <h1 className="has-text-weight-light has-text-centered is-size-4">Applications</h1>
         <br />
         <div className="columns is-mobile">
@@ -98,7 +118,7 @@ export default class Applications extends React.Component {
             }
           </div>
         </div>
-        </section>
+        </div>
         <Footer />
       </div>
     );
