@@ -6,7 +6,7 @@ export default class Statistics extends Component {
   render() {
     const {applied, accepted, waitlisted, rejected} = this.props.stats;
 
-    // load
+    // Loading dummy text
     const load = (<span className="is-blurred">8</span>);
 
     return (

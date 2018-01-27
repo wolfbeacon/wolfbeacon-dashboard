@@ -29,13 +29,19 @@ export default class ApplicationCard extends React.Component {
     getUserById(this.props.hacker.user)
       .then(profile => {
         this.setState({user: profile});
+        // 
         feather.replace();
       });
   }
 
   getAge(birthday) {
-    // birthday is a string containing the date
-    // eg: 1998-11-07
+    /*
+    args:
+      birthday: (string) the date of birth (28-01-2018)
+    returns:
+      age: (integer) age from the given date of birth
+    */
+
     const today = new Date();
     const birthDate = new Date(birthday);
     const age = today.getFullYear() - birthDate.getFullYear();
@@ -47,6 +53,13 @@ export default class ApplicationCard extends React.Component {
   }
 
   renderSocialLinks() {
+    /*
+    args: None
+    returns: 
+      A <div> with links to the social links present
+      in the user's profile.
+    TODO: Need to make this loop through instead of manually assigning
+    */
     const social = this.state.user.social_links;
     return (
       <div className="urls">
@@ -61,6 +74,7 @@ export default class ApplicationCard extends React.Component {
     const hacker = this.props.hacker;
     const user = this.state.user;
 
+    // Present a dummy loading card until all the data is fetched
     if (!user)
       return (
         <LoadingCard />
@@ -68,8 +82,8 @@ export default class ApplicationCard extends React.Component {
 
     const age = this.getAge(user.birthday);
     const social = this.state.user.social_links;
-    window.user = this.state.user;
-    // Set application tag class
+
+    // Set the tag's color according to the application status
     let tagClass = "tag ";
     switch(hacker.application_status){
       case "accepted":
