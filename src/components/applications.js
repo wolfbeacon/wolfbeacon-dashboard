@@ -34,6 +34,9 @@ export default class Applications extends React.Component {
     // Hackathon ID is parameter in the url 
     const hackId = this.props.match.params.hackathonId;
 
+    // Fetch hackathon details 
+    // If found: Updates the state with hackathon details
+    // If not found: Sets notFound as true
     getHackathon(hackId)
       .then(hackathon => this.setState({hackathon: hackathon}))
       .catch((err) => {
@@ -41,6 +44,9 @@ export default class Applications extends React.Component {
           this.setState({notFound: true});
       });
 
+    // Get the hackers of the hackathon and update state
+    // When the hackers are found, the statistics get calculated
+    // along with it
     getHackers(hackId)
       .then(hackers =>
         this.setState({
@@ -51,6 +57,12 @@ export default class Applications extends React.Component {
   }
 
   calculateStats(hackers) {
+    /*
+    args:
+      hackers: (array) of hackers belonging to this hackathon
+    returns:
+      stats: (array) Statistics of the application status
+    */
     const stats = {
       applied: 0, 
       accepted: 0, 
@@ -74,6 +86,7 @@ export default class Applications extends React.Component {
   }
 
   render(){
+    // If the requested hackathon id is not found, show a 404
     if (this.state.notFound)
       return (
         <div>
