@@ -20,7 +20,8 @@
     "react-countup": "^3.0.2",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-router-prop-types": "^0.0.3"
+    "react-router-prop-types": "^0.0.3",
+    "react-sortable-hoc": "^0.6.8"
   },
   "scripts": {
     "start": "react-scripts start",

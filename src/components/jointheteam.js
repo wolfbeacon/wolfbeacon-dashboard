@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TagInput from './tagInput';
 
 export default class JoinTheTeam extends Component {
 
@@ -27,7 +28,7 @@ export default class JoinTheTeam extends Component {
           </div>
 
           <div className="columns">
-            <div className="column is-4 is-offset-4">
+            <div className="column is-6 is-offset-3">
               <div className="box">
 
                 <div className="field">
@@ -152,29 +153,8 @@ export default class JoinTheTeam extends Component {
                   </select>
                 </div>
 
-                <div className="field">
-                  <p className="control">
-                    <input className="input" name="technical_interests" type="text" placeholder="List of Technology sub categories Interested In"/>
-                  </p>
-                </div>
-
-                <div className="field is-grouped is-grouped-multiline">
-
-                  <div className="control">
-                    <div className="tags has-addons">
-                      <span className="tag is-info">Django</span>
-                      <a className="tag is-delete"></a>
-                    </div>
-                  </div>
-
-                  <div className="control">
-                    <div className="tags has-addons">
-                      <span className="tag is-info">ReactJS</span>
-                      <a className="tag is-delete"></a>
-                    </div>
-                  </div>
-
-                </div>
+                <label className="label">List of Technology sub categories Interested In</label>
+                <TagInput inputName="technical_interests"/>
 
                 <label className="label">Special Accommodations Required</label>
                 <textarea className="textarea" name="special_accomodations" placeholder=""></textarea>
