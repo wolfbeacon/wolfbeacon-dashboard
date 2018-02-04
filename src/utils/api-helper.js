@@ -6,9 +6,9 @@ const version = 1;
 const base = "https://api.wolfbeacon.com/v" + version + "/";
 const access_token = require('./secret.json').access_token;
 const endpoints = {
-  hackathon: "hackathons/",
   user: "users/",
-  hacker: (hackathon_id) => `hackathons/${hackathon_id}/hackers/`
+  hackers: "hackers/",
+  hackathon: (hackathon_id) => `hackathons/${hackathon_id}/`
 }
 
 export let auth0 = {
@@ -53,10 +53,33 @@ export function wipeLoginData() {
 }
 
 export function getUserProfile() {
+  // Returns the profile array matching the user ID
   const profile = JSON.parse(localStorage.getItem('wb_auth0_profile'));
   return api().get(endpoints.user, {
     params: {
       email: profile.email
+    }
+  }).then(res => res.data)
+    .catch(() => false);
+}
+
+export function getUserById(id) {
+  const url = endpoints.user + id + "/";
+  return api().get(url)
+    .then(res => res.data);
+}
+
+export function getHackathon(hackId) {
+  const url = base + endpoints.hackathon(hackId);
+  return api().get(url)
+    .then(res => res.data);
+}
+
+export function getHackers(hackId) {
+  const url = base + endpoints.hackers;
+  return api().get(url, {
+    params: {
+      hackathon: hackId
     }
   }).then(res => res.data)
     .catch(() => false);
