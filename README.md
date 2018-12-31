@@ -38,3 +38,8 @@ This React app aggregates all the API data and presents it in a visually pleasin
   ```
 
 The website should be up and running on *host-ip:8000*
+
+## UI Components Kit
+GitHub StoryBook Repo: https://github.com/CheaprEats/react-ui
+
+StoryBook: https://react-ui.cheapreats.com/
